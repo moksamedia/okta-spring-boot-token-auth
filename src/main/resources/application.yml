@@ -1,10 +1,6 @@
 server:
   port: 8080
-
-spring:
-  resources:
-    static-locations: "classpath:/static/"
-                                     
+                                       
 okta:
   oauth2:
     issuer: https://dev-533919.oktapreview.com/oauth2/default
