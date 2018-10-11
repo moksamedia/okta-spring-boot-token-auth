@@ -14,12 +14,7 @@ public class HelloController {
     @RequestMapping("/")
     @ResponseBody
     public String home(java.security.Principal user) {
-        if (user != null) {
-            return "Hello " + user.getName();
-        }
-        else {
-            return "Who are you?!";
-        }
+        return "Hello " + user.getName();
     }
 
 }
