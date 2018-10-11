@@ -1,0 +1,12 @@
+server:
+  port: 8080
+
+spring:
+  resources:
+    static-locations: "classpath:/static/"
+                                     
+okta:
+  oauth2:
+    issuer: https://dev-533919.oktapreview.com/oauth2/default
+    clientId: 0oag58489amZL0MEN0h7
+    clientSecret: MJwacxENV745lGP5bOvQDM_bh194juxt7Ir_ua3A
