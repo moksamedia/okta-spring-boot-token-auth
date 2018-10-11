@@ -1,29 +1,20 @@
-package com.okta.springbootwithauth;
+package com.okta.springboottokenauth;
 
-import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.config.core.GrantedAuthorityDefaults;
 
-@EnableOAuth2Sso
 @Configuration
-@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SpringSecurityWebAppConfig extends WebSecurityConfigurerAdapter {
 
-    @Bean
-    GrantedAuthorityDefaults grantedAuthorityDefaults() {
-        return new GrantedAuthorityDefaults(""); // Remove the ROLE_ prefix
-    }
-    
     @Override
+    @Order(Ordered.HIGHEST_PRECEDENCE)
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/").permitAll()
-                .antMatchers("/img/**").permitAll()
+                .antMatchers("/api/**").permitAll()
                 .anyRequest().authenticated();
     }
-    
+
 }
